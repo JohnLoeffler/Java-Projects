@@ -24,13 +24,12 @@ public class Assignment_2_Driver{
     Rational lhs = null, rhs = null;
 
     //  Test that the Rational object properly rejects zero as a denominator
-    try {
-      lhs = new Rational(1,0);
-    } catch (Exception e) {
-      System.err.println(e.getMessage());
-      e.printStackTrace(System.err);
-      System.out.println("Rational constructor properly rejects a zero denominator");
-    }
+    //try {
+    //  lhs = new Rational(1,0);
+    //} catch (Exception e) {
+      //e.printStackTrace(System.err);
+      //System.out.println("[Success]: Rational constructor properly rejects a zero denominator");
+    //}
 
     //  Create two new Rational objects to perform operations on using random ints, with the denominator between one and
     //    n, and the numerator between zero and n, and randomly assigned a positive or negative sign
@@ -47,17 +46,17 @@ public class Assignment_2_Driver{
         rhs = new Rational(rand.nextInt(N)*-1, rand.nextInt(N)+1);
       }
     } catch (Exception e) {
-      //  If exception is thrown by the Rational constructor, one or both variables will be null, so print an error message and exit
-      System.err.println(e.getMessage());
+      //  If exception is thrown by the Rational constructor, one or both variables will be null, so print an error
+      //    message and exit
       e.printStackTrace(System.err);
-      System.err.println("Rational object creation failed. One or both are null.");
+      System.err.println("[Error]: Rational object creation failed. One or both are null.");
       System.exit(1);
     }
 
     //  Print the generated Rationals before performing operations to verify the output of the class's operation methods
     try {
-      System.out.println("The LHS Rational == '" + lhs.toString() + "' and the RHS Rational == " + rhs.toString());
-      System.out.println("The LHS Rational as a decimal == '" + lhs.toDecimal() + "' and the RHS Rational as a decimal == " + rhs.toDecimal());
+      System.out.println("The LHS Rational == '" + lhs.toString() + "' and the RHS Rational == '" + rhs.toString() + "'");
+      //System.out.println("The LHS Rational as a decimal == '" + lhs.toDecimal() + "' and the RHS Rational as a decimal == '" + rhs.toDecimal()+ "'");
     }catch(NullPointerException npe){
       System.err.println(npe.getMessage());
       npe.printStackTrace(System.err);
@@ -65,7 +64,7 @@ public class Assignment_2_Driver{
     /* Test the Addition method */
     try {
       Rational result = lhs.Add(rhs);
-      System.out.println("Addition resulted in '" + result.toString());
+      System.out.println("  Addition resulted in '" + result.toString());
     } catch (Exception e) {
       System.err.println(e.getMessage());
       e.printStackTrace(System.err);
@@ -73,7 +72,7 @@ public class Assignment_2_Driver{
     /* Test the Subtraction method */
     try {
       Rational result = lhs.Subtract(rhs);
-      System.out.println("Subtraction resulted in '" + result.toString());
+      System.out.println("  Subtraction resulted in '" + result.toString());
     } catch (Exception e) {
       System.err.println(e.getMessage());
       e.printStackTrace(System.err);
@@ -81,7 +80,7 @@ public class Assignment_2_Driver{
     /* Test the Multiply method */
     try {
       Rational result = lhs.Multiply(rhs);
-      System.out.println("Multiplication resulted in '" + result.toString());
+      System.out.println("  Multiplication resulted in '" + result.toString());
     } catch (Exception e) {
       System.err.println(e.getMessage());
       e.printStackTrace(System.err);
@@ -89,7 +88,7 @@ public class Assignment_2_Driver{
     /* Test the Divide method */
     try {
       Rational result = lhs.Divide(rhs);
-      System.out.println("Division resulted in '" + result.toString());
+      System.out.println("  Division resulted in '" + result.toString());
     } catch (Exception e) {
       System.err.println(e.getMessage());
       e.printStackTrace(System.err);

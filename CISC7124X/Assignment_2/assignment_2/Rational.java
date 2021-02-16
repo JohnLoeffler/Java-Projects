@@ -28,14 +28,15 @@ public class Rational {
 
   /** Get the Greatest Common Divisor between two numbers */
   private int GetGCD(int num, int denom){
-    // Initiate the gcd to 1
+    // Initiate the GCD to 1
     int gcd = 1;
 
     //  loop through all values less than or equal to the lesser of the two numbers, and if both are evenly divisible by
     //    'i', set gcd equal to 'i'
-    for (int i = 1; i <= num && i <= denom; i++) {
+    for (int i = 1; i <= Math.abs(num) && i <= Math.abs(denom); i++) {
       if ((num % i == 0) && (denom % i == 0)) {
         gcd = i;
+        //System.out.println("\tGCD == " + gcd);
       }
     }
     return gcd;
@@ -46,11 +47,14 @@ public class Rational {
     int sum = (this.Numerator * rhs.Denominator) + (rhs.Numerator * this.Denominator);
     int lcd = this.Denominator * rhs.Denominator;
 
-    // Get the greatest common divisor between the new numerator and denominator
+    // Get the greatest common divisor between the new numerator and denominator and reduce the fraction
     int gcd = this.GetGCD(sum, lcd);
+    sum /= gcd;
+    lcd /= gcd;
 
+    //  Return a new Rational object using the newly reduced rational number
     try {
-      return new Rational((sum / gcd), (lcd / gcd));
+      return new Rational(sum, lcd);
     } catch (Exception e) {
       throw e;
     }
@@ -61,12 +65,14 @@ public class Rational {
     int diff = (this.Numerator * rhs.Denominator) - (rhs.Numerator * this.Denominator);
     int lcd = this.Denominator * rhs.Denominator;
 
-    // Get the greatest common divisor between the new numerator and denominator
+    // Get the greatest common divisor between the new numerator and denominator and reduce the fraction
     int gcd = this.GetGCD(diff, lcd);
+    diff /= gcd;
+    lcd /= gcd;
 
-    //  Reduce the obtained numerator and denominator, create a new Rational object using the result, and return
+    //  Return a new Rational object using the newly reduced rational number
     try {
-      return new Rational((diff / gcd), (lcd / gcd));
+      return new Rational(diff, lcd);
     } catch (Exception e) {
       throw e;
     }
@@ -77,11 +83,14 @@ public class Rational {
     int num = this.Numerator * rhs.Numerator;
     int denom = this.Denominator * rhs.Denominator;
 
-    // Get the greatest common divisor between the new numerator and denominator
+    // Get the greatest common divisor between the new numerator and denominator and reduce the fraction
     int gcd = this.GetGCD(num, denom);
+    num /= gcd;
+    denom /= gcd;
 
+    //  Return a new Rational object using the newly reduced rational number
     try {
-      return new Rational((num / gcd), (denom / gcd));
+      return new Rational(num, denom);
     } catch (Exception e) {
       throw e;
     }
@@ -92,10 +101,10 @@ public class Rational {
     int num = this.Numerator * rhs.Denominator;
     int denom = this.Denominator * rhs.Numerator;
 
-    // Get the greatest common divisor between the new numerator and denominator
+    // Get the greatest common divisor between the new numerator and denominator and reduce the fraction
     int gcd = this.GetGCD(num, denom);
 
-    //  Reduce the obtained numerator and denominator, create a new Rational object using the result, and return
+    //  Return a new Rational object using the newly reduced rational number
     try {
       return new Rational((num / gcd), (denom / gcd));
     } catch (Exception e) {
@@ -104,7 +113,7 @@ public class Rational {
   }
   /** Returns the Rational object's numerator and denominator, delimited with a '/' as a String */
   public String toString(){
-    return new String(String.valueOf(this.Numerator)+ " / " + String.valueOf(this.Denominator);
+    return this.Numerator+ " / " + this.Denominator;
   }
 
   /** Returns the Rational object's numerator and denominator, delimited with a '/' as a String */
