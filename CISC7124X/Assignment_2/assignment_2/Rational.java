@@ -102,4 +102,13 @@ public class Rational {
       throw e;
     }
   }
+  /** Returns the Rational object's numerator and denominator, delimited with a '/' as a String */
+  public String toString(){
+    return new String(String.valueOf(this.Numerator)+ " / " + String.valueOf(this.Denominator);
+  }
+
+  /** Returns the Rational object's numerator and denominator, delimited with a '/' as a String */
+  public float toDecimal(){
+    return (float)this.Numerator/(float)this.Denominator;
+  }
 }
