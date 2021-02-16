@@ -1,0 +1,18 @@
+JOHN LOEFFLER
+CISC 7124X
+BROOKLYN COLLEGE
+ASSIGNMENT # 2 - JAVA CLASS OBJECTS REVIEW
+
+Implement each of the following classes in Java.
+
+1
+Implement a class, named Rational, for reduced-form rational numbers. The class has two member variables, named numerator and denominator, and provides member functions for the following arithmetic operations: addition, subtraction, multiplication, and division. A rational number is in the reduced form if the greatest common divisor of the numerator and the denominator is 1.
+
+2
+Design and implement a class 'ParkingMeter' for parking meters. The class has three member variables: 'maxTime' for maximum parking minutes, 'rate' for parking rate (minutes per quarter), and 'time' for remaining parking time. The class should provide member functions for the client to insert quarters and check remaining parting time. The constructor should take the maximum parking minutes and the rate.
+
+3
+Implement a class 'Car' with the following properties. A car has a certain fuel efficiency (measured in miles/gallon) and a certain amount of fuel in the gas tank. The efficiency is specified in the constructor, and the initial fuel level is 0. Supply a method 'drive' that simulates driving the car for a certain distance, reducing the fuel level in the gas tank, and methods 'getGas', to return the current fuel level, and 'addGas' to tank up.
+
+4
+Create a class HugeInteger which uses a vector of digits to store huge integers. A HugeInteger object has a sign that indicates if the represented integer is non-negative (0) or negative (1). Provide methods parse, toString, add and subtract. Method parse should receive a String, extract each digit using method charAt and place the integer equivalent of each digit into the integer vector. For comparing HugeInteger objects, provide the following methods: isEqualTo, isNotEqualTo, isGreaterThan, isLessThan, isGreaterThanOrEqualTo, and isLessThanOrEqualTo. Each of these is a predicate method that returns true if the relationship holds between the two HugeInteger objects and returns false if the relationship does not hold. Provide a rpedicate method isZero.
