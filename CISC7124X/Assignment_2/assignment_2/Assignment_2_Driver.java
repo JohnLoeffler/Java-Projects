@@ -70,7 +70,6 @@ public class Assignment_2_Driver{
       System.err.println(e.getMessage());
       e.printStackTrace(System.err);
     }
-
     /* Test the Subtraction method */
     try {
       Rational result = lhs.Subtract(rhs);
