@@ -1,6 +1,5 @@
 package assignment_2;
 
-import java.rmi.ServerError;
 import java.util.Random;
 
 /**
@@ -90,7 +89,7 @@ public class Assignment_2_Driver{
         Integer.parseUnsignedInt(args[2]),
         Integer.parseUnsignedInt(args[3])
     );
-
+/*
     //  Test the ParkingMeter.GetMaxTime() method
     System.out.println("Max Time: " + pm.GetMaxTime());
 
@@ -118,11 +117,28 @@ public class Assignment_2_Driver{
       quarters--;
     }
     pm.Shutdown();
-
+*/
     /* ******************* PROBLEM NUMBER 3 *********************** */
 
     Car car = new Car(Float.parseFloat(args[5]), Float.parseFloat(args[6]));
-
-
+    System.out.println("Fuel capacity for the car: " + car.GetCapacity());
+    System.out.println("Fuel efficiency for the car: " + car.GetEfficiency());
+    System.out.println("Maximum range for the car: " + (car.GetEfficiency()*car.GetCapacity()));
+    System.out.println(car.ReportGas());
+    car.Drive(10.0F);
+    car.AddGas(car.GetCapacity()*0.25F);
+    System.out.println(car.ReportGas());
+    System.out.println("With this much gas, the car can drive " + (car.GetGas()*car.GetEfficiency()) + " miles");
+    while(car.GetGas() > 0.0F){
+      car.Drive(10.0F);
+      System.out.println(car.ReportGas());
+    }
+    System.out.println("------------------\nFilling up at a gas station...\n------------------");
+    car.AddGas(car.GetCapacity());
+    System.out.println(car.ReportGas());
+    while(car.GetGas() > 0.0F){
+      car.Drive(10.0F);
+      System.out.println(car.ReportGas());
+    }
   }
 }
