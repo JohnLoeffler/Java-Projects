@@ -20,6 +20,7 @@ public class Assignment_2_Driver{
     }
 
     /* ******************* PROBLEM NUMBER 1 *********************** */
+    System.out.println("===============================\n\tPROBLEM # 1\n===============================");
 
     //  Create a pair of Rational variables and initialize them to 'null'
     Rational lhs = null, rhs = null;
@@ -83,6 +84,7 @@ public class Assignment_2_Driver{
     }
 
     /* ******************* PROBLEM NUMBER 2 *********************** */
+    System.out.println("\n\n===============================\n\tPROBLEM # 2\n===============================");
 
     ParkingMeter pm = new ParkingMeter(
         Integer.parseUnsignedInt(args[1]),
@@ -106,10 +108,9 @@ public class Assignment_2_Driver{
     pm.AddTime();
     quarters--;
     while (quarters > 0) {
-      System.out.println("  Time Remaining Before Sleep: " + pm.GetTimeRemaining());
       try {
         Thread.sleep(10000);
-        System.out.println("    Time Remaining After Sleep: " + pm.GetTimeRemaining());
+        System.out.println("Time Remaining After Sleep: " + pm.GetTimeRemaining());
       } catch (InterruptedException e) {
         e.printStackTrace();
       }
@@ -119,26 +120,37 @@ public class Assignment_2_Driver{
     pm.Shutdown();
 */
     /* ******************* PROBLEM NUMBER 3 *********************** */
+    System.out.println("\n\n===============================\n\tPROBLEM # 3\n===============================");
 
     Car car = new Car(Float.parseFloat(args[5]), Float.parseFloat(args[6]));
     System.out.println("Fuel capacity for the car: " + car.GetCapacity());
     System.out.println("Fuel efficiency for the car: " + car.GetEfficiency());
     System.out.println("Maximum range for the car: " + (car.GetEfficiency()*car.GetCapacity()));
+    System.out.println("------------------\nAdding gas to the car\n------------------");
     System.out.println(car.ReportGas());
     car.Drive(10.0F);
     car.AddGas(car.GetCapacity()*0.25F);
     System.out.println(car.ReportGas());
     System.out.println("With this much gas, the car can drive " + (car.GetGas()*car.GetEfficiency()) + " miles");
+
+    System.out.println("------------------\nDriving until out of gas\n------------------");
     while(car.GetGas() > 0.0F){
       car.Drive(10.0F);
-      System.out.println(car.ReportGas());
+      System.out.println("\t" + car.ReportGas());
     }
-    System.out.println("------------------\nFilling up at a gas station...\n------------------");
+
+    System.out.println("------------------\nFilling up at a gas station until full\n------------------");
     car.AddGas(car.GetCapacity());
-    System.out.println(car.ReportGas());
+    System.out.println("\t" + car.ReportGas());
+    System.out.println("------------------\nDriving until out of gas\n------------------");
     while(car.GetGas() > 0.0F){
       car.Drive(10.0F);
-      System.out.println(car.ReportGas());
+      System.out.println("\t" + car.ReportGas());
     }
+
+    /* ******************* PROBLEM NUMBER 4 *********************** */
+    System.out.println("\n\n===============================\n\tPROBLEM # 4\n===============================");
+
+
   }
 }
