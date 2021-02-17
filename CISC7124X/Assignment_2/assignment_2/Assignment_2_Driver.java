@@ -121,5 +121,8 @@ public class Assignment_2_Driver{
 
     /* ******************* PROBLEM NUMBER 3 *********************** */
 
+    Car car = new Car(Float.parseFloat(args[5]), Float.parseFloat(args[6]));
+
+
   }
 }
